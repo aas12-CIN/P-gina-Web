@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo(a)!</title>
+    <style>
+        /* Estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: fontinha;
+            src: url(04B_30__.TTF);
+        }
+        @font-face {
+            font-family: fonte;
+            src: url(Retro\ Gaming.ttf);
+        }
+        body {
+            font-family: fonte;
+            background: url(ii.gif);
+            background-size: cover;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        /* Cabeçalho */
+        header {
+            display: inline-block;
+            background-color: #333;
+            color: #e2deff;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+            font-size: 23px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(31, 2, 67, 0.1);
+        }
+        /* Conteúdo principal */
+        main {
+            max-width: 500px;
+            background-color: #e3e7ffe8;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 10 10px 20px rgba(104, 10, 219, 0.1);
+            overflow-wrap: break-word;
+            box-shadow: inset 0 0 10px rgba(100, 93, 128, 0.2);
+            position: relative;
+        
+
+        }
+        .imagem-posicionada {
+            position: absolute;
+            top: -172px;
+            left: 347px;
+            width: 320px;
+            height: auto;
+        }
+        h1 {
+            font-size: 32px;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #333;
+            color: #f8f8f8;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+        footer {
+            margin-top: 20px;
+            max-width: 300px;
+            background-color: #e3e7ffe8;
+            box-shadow: 0 4px 8px rgba(31, 2, 67, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>   
+    <header id="header">
+        <!-- O nome será inserido aqui -->
+    </header>
+    
+    <main>
+        <h1>Olá!</h1>
+        <p>Este é um espaço para compartilhar um pouco sobre quem sou e o que gosto de fazer.</p>
+    
+        <!-- Primeira imagem que será escondida ao clicar no botão -->
+        <img src="euzinha.png" alt="Descrição da imagem" class="imagem-posicionada" id="imagem1">
+
+        <a href="#" class="button" onclick="toggleContent()">Saiba Mais</a>
+
+        <!-- Conteúdo extra que será mostrado ao clicar no botão -->
+        <div id="moreContent" style="display: none;">
+            <p>Meu nome é Adrielly, tenho 18 anos e estou mergulhando no mundo do desenvolvimento Front-End ;D</p>
+            <audio id="myAudio">
+                <source src="musica.wav" type="audio/x-wav">
+            </audio>
+        </div>
+    
+        <script>
+          // Pega o nome do usuário e insere no cabeçalho
+          let nome = window.prompt('Qual é o seu nome?');
+          document.getElementById('header').textContent = `Bem-vindo ao meu site, ${nome}!`;
+
+          // Função para mostrar o conteúdo adicional, esconder a imagem inicial e tocar o áudio
+          function toggleContent() {
+            var moreContent = document.getElementById("moreContent");
+            var audio = document.getElementById("myAudio");
+            audio.volume = 0.1;
+
+            // Mostra ou esconde o conteúdo adicional
+            if (moreContent.style.display === "none") {
+                moreContent.style.display = "block";
+                audio.play().catch(error => {
+                    console.log("Reprodução automática bloqueada:", error);
+                });
+            } else {
+                moreContent.style.display = "none";
+                audio.pause(); // Pausa o áudio se o conteúdo for escondido
+                audio.currentTime = 0; // Reseta o áudio para o início
+            }
+          }
+        </script>
+      </main>
+    
+    <footer>
+        Criado com ❤️ por Adrielly
+    </footer>
+</body>
+</html>
